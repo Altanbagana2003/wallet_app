@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:wallet_app/core/utils/bnb_custom_painter.dart';
 import 'package:wallet_app/core/utils/colors.dart';
