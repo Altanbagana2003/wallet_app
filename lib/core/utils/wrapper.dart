@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/onboarding/intro_screen.dart';
+import 'package:wallet_app/features/onboarding/onboard.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
