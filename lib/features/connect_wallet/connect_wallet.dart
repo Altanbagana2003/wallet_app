@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/connect_wallet/account.dart';
 import 'package:wallet_app/features/connect_wallet/wallet_text_field.dart';
 import 'package:wallet_app/features/shared/custom_text_field.dart';
 import 'package:wallet_app/features/wallet/header.dart';
@@ -130,81 +131,89 @@ class _ConnectWalletState extends State<ConnectWallet> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Center(
-                      child: Image.asset(
-                        "assets/img/Cards.png",
-                        width: size.width * 0.8,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      "Картны мэдээлэлээ нэмэх",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    SizedBox(
-                      width: size.width * 0.7,
-                      child: const Text(
-                        "Энд холбох  карт нь зөвхөн  таны нэр дээр байх ёстой.",
-                        style: TextStyle(
-                          color: Color(0xFF666666),
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    WalletTextField(
-                      isPassword: false,
-                      placeHolder: "КАРТ ДЭЭРХ НЭР",
-                      controller: nameController,
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: size.width * 0.5,
-                          child: WalletTextField(
-                            isPassword: false,
-                            placeHolder: "КАРТЫН ДУГААР",
-                            controller: cardNumberController,
-                          ),
-                        ),
-                        SizedBox(
-                          width: size.width * 0.3,
-                          child: WalletTextField(
-                            isPassword: false,
-                            placeHolder: "CVC",
-                            controller: cvcController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: size.width * 0.5,
-                          child: WalletTextField(
-                            isPassword: false,
-                            placeHolder: "ДУУСАХ ХУГАЦАА  YYYY/MM",
-                            controller: dateController,
-                          ),
-                        ),
-                        SizedBox(
-                          width: size.width * 0.3,
-                          child: WalletTextField(
-                            isPassword: false,
-                            placeHolder: "ZIP",
-                            controller: zipController,
-                          ),
-                        ),
-                      ],
-                    ),
+                    isCart
+                        ? Column(
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  "assets/img/Cards.png",
+                                  width: size.width * 0.8,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              const Text(
+                                "Картны мэдээлэлээ нэмэх",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              SizedBox(
+                                width: size.width * 0.7,
+                                child: const Text(
+                                  "Энд холбох  карт нь зөвхөн  таны нэр дээр байх ёстой.",
+                                  style: TextStyle(
+                                    color: Color(0xFF666666),
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              WalletTextField(
+                                isPassword: false,
+                                placeHolder: "КАРТ ДЭЭРХ НЭР",
+                                controller: nameController,
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: size.width * 0.5,
+                                    child: WalletTextField(
+                                      isPassword: false,
+                                      placeHolder: "КАРТЫН ДУГААР",
+                                      controller: cardNumberController,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: size.width * 0.3,
+                                    child: WalletTextField(
+                                      isPassword: false,
+                                      placeHolder: "CVC",
+                                      controller: cvcController,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: size.width * 0.5,
+                                    child: WalletTextField(
+                                      isPassword: false,
+                                      placeHolder: "ДУУСАХ ХУГАЦАА  YYYY/MM",
+                                      controller: dateController,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: size.width * 0.3,
+                                    child: WalletTextField(
+                                      isPassword: false,
+                                      placeHolder: "ZIP",
+                                      controller: zipController,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )
+                        : const Account(),
                   ],
                 ),
               ),
