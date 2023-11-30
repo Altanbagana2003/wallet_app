@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/features/Home/avatars.dart';
 import 'package:wallet_app/features/Home/transacion_history_title.dart';
 import 'package:wallet_app/features/Home/transaction_history_widget.dart';
+import 'package:wallet_app/features/connect_wallet/connect_wallet.dart';
 import 'package:wallet_app/features/wallet/header.dart';
 import 'package:wallet_app/features/wallet/menus.dart';
 import 'package:wallet_app/features/wallet/waiting_widget.dart';
@@ -63,14 +64,18 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    Container(
+                    SizedBox(
                       width: size.width * 0.7,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Menus(
                             onPress: () {
-                              log('gg');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const ConnectWallet())));
                             },
                             img: "assets/img/plus.png",
                             title: "Нэмэх",
@@ -91,9 +96,6 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    Row(
-                      children: [],
-                    ),
                     Container(
                       width: size.width * 0.9,
                       height: size.height * 0.055,
