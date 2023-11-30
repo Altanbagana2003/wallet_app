@@ -5,6 +5,8 @@ import 'package:wallet_app/features/Home/avatars.dart';
 import 'package:wallet_app/features/Home/transacion_history_title.dart';
 import 'package:wallet_app/features/Home/transaction_history_widget.dart';
 import 'package:wallet_app/features/wallet/header.dart';
+import 'package:wallet_app/features/wallet/menus.dart';
+import 'package:wallet_app/features/wallet/waiting_widget.dart';
 
 class WalletScreen extends StatefulWidget {
   final Function layoutChange;
@@ -61,7 +63,33 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    Text('gg'),
+                    Container(
+                      width: size.width * 0.7,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Menus(
+                            onPress: () {
+                              log('gg');
+                            },
+                            img: "assets/img/plus.png",
+                            title: "Нэмэх",
+                          ),
+                          const SizedBox(width: 10),
+                          Menus(
+                            onPress: () {},
+                            img: "assets/img/qr-code-fill 1.png",
+                            title: "Төлөх",
+                          ),
+                          const SizedBox(width: 10),
+                          Menus(
+                            onPress: () {},
+                            img: "assets/img/send.png",
+                            title: "Илгээх",
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(height: 40),
                     Row(
                       children: [],
@@ -187,7 +215,37 @@ class _WalletScreenState extends State<WalletScreen> {
                               ],
                             ),
                           )
-                        : Text("not transaction"),
+                        : Container(
+                            width: size.width,
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              children: [
+                                WaitingWidget(
+                                  img: "assets/img/Frame 9 (3).png",
+                                  title: "Youtube",
+                                  subTitle: "Feb 28, 2022",
+                                ),
+                                const SizedBox(height: 10),
+                                WaitingWidget(
+                                  img: "assets/img/elec.png",
+                                  title: "Electricity",
+                                  subTitle: "Mar 28, 2022",
+                                ),
+                                const SizedBox(height: 10),
+                                WaitingWidget(
+                                  img: "assets/img/home.png",
+                                  title: "House Rent",
+                                  subTitle: "Mar 31, 2022",
+                                ),
+                                const SizedBox(height: 10),
+                                WaitingWidget(
+                                  img: "assets/img/spotify.png",
+                                  title: "Spotify",
+                                  subTitle: "Feb 28, 2022",
+                                ),
+                              ],
+                            ),
+                          ),
                   ],
                 ),
               ),
