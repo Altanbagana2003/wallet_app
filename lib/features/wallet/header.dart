@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
 class WalletHeader extends StatelessWidget {
+  bool isDot;
   String title;
   String img;
 
-  WalletHeader({super.key, required this.title, required this.img});
+  WalletHeader(
+      {super.key, required this.title, required this.img, required this.isDot});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Image.asset("assets/img/Rectangle 28.png"),
+        Image.asset(
+          "assets/img/Rectangle 28.png",
+        ),
         Positioned(
           top: 80,
           left: -50,
@@ -63,7 +67,7 @@ class WalletHeader extends StatelessWidget {
                 ),
                 Image.asset(
                   img,
-                  height: size.height * 0.05,
+                  height: isDot ? size.height * 0.008 : size.height * 0.05,
                 ),
               ],
             ),

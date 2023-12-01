@@ -30,6 +30,7 @@ class _WalletScreenState extends State<WalletScreen> {
         child: Stack(
           children: [
             WalletHeader(
+              isDot: false,
               img: "assets/img/Frame 4.png",
               title: "Түрийвч",
             ),

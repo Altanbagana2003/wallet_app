@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/connect_wallet/account.dart';
+import 'package:wallet_app/features/connect_wallet/add_expense.dart';
 import 'package:wallet_app/features/connect_wallet/wallet_text_field.dart';
+import 'package:wallet_app/features/shared/custom_button.dart';
 import 'package:wallet_app/features/shared/custom_text_field.dart';
 import 'package:wallet_app/features/wallet/header.dart';
 
@@ -31,6 +33,7 @@ class _ConnectWalletState extends State<ConnectWallet> {
         child: Stack(
           children: [
             WalletHeader(
+              isDot: false,
               img: "assets/img/Frame 4.png",
               title: "Түрийвч цэнэглэх",
             ),
@@ -213,7 +216,23 @@ class _ConnectWalletState extends State<ConnectWallet> {
                               ),
                             ],
                           )
-                        : const Account(),
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Account(),
+                              const SizedBox(height: 40),
+                              CustomButton(
+                                buttonText: "ДАРААХ",
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              AddExpense())));
+                                },
+                              ),
+                            ],
+                          ),
                   ],
                 ),
               ),
