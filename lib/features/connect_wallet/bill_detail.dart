@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:wallet_app/features/bill_payment/bill_payment.dart';
 import 'package:wallet_app/features/shared/custom_button.dart';
 import 'package:wallet_app/features/wallet/header.dart';
 
@@ -128,7 +129,7 @@ class _BillDetailState extends State<BillDetail> {
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 15),
-                        width: size.width * 0.8,
+                        width: size.width,
                         height: size.height * 0.12,
                         decoration: BoxDecoration(
                           color: isDebit
@@ -155,7 +156,7 @@ class _BillDetailState extends State<BillDetail> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      width: size.width * 0.5,
+                                      width: size.width * 0.56,
                                       child: Text(
                                         "Дебит карт",
                                         style: TextStyle(
@@ -174,7 +175,10 @@ class _BillDetailState extends State<BillDetail> {
                                         "assets/img/Group 23.png",
                                         height: 30,
                                       )
-                                    : Image.asset("assets/img/Ellipse 67.png")
+                                    : Image.asset(
+                                        "assets/img/Ellipse 67.png",
+                                        height: 30,
+                                      )
                               ],
                             ),
                           ],
@@ -192,7 +196,7 @@ class _BillDetailState extends State<BillDetail> {
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 15),
-                        width: size.width * 0.8,
+                        width: size.width,
                         height: size.height * 0.12,
                         decoration: BoxDecoration(
                           color: isPaypal
@@ -219,7 +223,7 @@ class _BillDetailState extends State<BillDetail> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      width: size.width * 0.5,
+                                      width: size.width * 0.56,
                                       child: Text(
                                         "Paypal",
                                         style: TextStyle(
@@ -238,7 +242,10 @@ class _BillDetailState extends State<BillDetail> {
                                         "assets/img/Group 23.png",
                                         height: 30,
                                       )
-                                    : Image.asset("assets/img/Ellipse 67.png")
+                                    : Image.asset(
+                                        "assets/img/Ellipse 67.png",
+                                        height: 30,
+                                      )
                               ],
                             ),
                           ],
@@ -248,7 +255,14 @@ class _BillDetailState extends State<BillDetail> {
                     SizedBox(
                       height: 20,
                     ),
-                    CustomButton(buttonText: "Төлөх", onTap: () {})
+                    CustomButton(
+                        buttonText: "Төлөх",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => BillPayment())));
+                        }),
                   ],
                 ),
               ),
